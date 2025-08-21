@@ -1,0 +1,5 @@
+[33me684e442[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m 优化Vercel配置，添加.vercelignore和专用构建脚本
+[33m0dd59e6b[m 修复构建脚本问题，使用shell脚本替代Node.js脚本
+[33m75bbb0d8[m 更新故障排除指南，添加Runtime配置错误解决方案
+[33m8559d58b[m[33m ([m[1;31morigin/master[m[33m)[m 修复vercel.json中的functions配置错误
+[33m6cb31a34[m 添加Vercel部署故障排除指南
