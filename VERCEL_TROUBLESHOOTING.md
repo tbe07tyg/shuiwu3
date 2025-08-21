@@ -15,7 +15,19 @@ Error: Command "npm run build" exited with 126
 - 确保 `vercel.json` 中 `buildCommand` 设置为 `node vercel-build.js`
 - 检查 `vercel-build.js` 文件是否存在且内容正确
 
-### 2. 依赖安装失败
+### 2. Functions Runtime 配置错误
+
+**错误信息：**
+```
+Error: Function Runtimes must have a valid version, for example `now-php@1.0.0`
+```
+
+**解决方案：**
+- ✅ 已修复：移除有问题的 `functions` 配置
+- 对于纯前端项目，不需要 `functions` 配置
+- 如果需要API函数，使用正确的runtime版本格式
+
+### 3. 依赖安装失败
 
 **错误信息：**
 ```
@@ -30,7 +42,7 @@ npm ERR! errno -2
 - 检查 `vercel.json` 中的 `installCommand` 设置
 - 确保所有依赖都在 `package.json` 中正确声明
 
-### 3. 构建超时
+### 4. 构建超时
 
 **错误信息：**
 ```
@@ -42,7 +54,7 @@ Build exceeded maximum execution time
 - 使用 `.vercelignore` 排除不需要的文件
 - 检查是否有过大的文件或依赖
 
-### 4. 内存不足
+### 5. 内存不足
 
 **错误信息：**
 ```
@@ -64,11 +76,6 @@ JavaScript heap out of memory
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "vite",
-  "functions": {
-    "api/**/*.js": {
-      "runtime": "nodejs18.x"
-    }
-  },
   "rewrites": [
     {
       "source": "/(.*)",
@@ -126,7 +133,7 @@ try {
 
 ### 部署前检查
 - [ ] `package.json` 存在且包含正确的脚本
-- [ ] `vercel.json` 配置正确
+- [ ] `vercel.json` 配置正确（无语法错误）
 - [ ] `vercel-build.js` 脚本存在
 - [ ] 所有依赖都已提交到Git
 - [ ] `.gitignore` 配置正确
@@ -198,7 +205,12 @@ VITE_APP_TITLE=科研管理系统
 
 ## 总结
 
-通过使用 `vercel-build.js` 脚本，我们已经解决了权限问题。现在您可以：
+通过以下修复，我们已经解决了主要的构建问题：
+
+1. ✅ **权限问题**：使用 `vercel-build.js` 脚本
+2. ✅ **Runtime配置错误**：移除有问题的 `functions` 配置
+
+现在您可以：
 
 1. 🔄 重新触发Vercel部署
 2. 📊 监控构建过程
