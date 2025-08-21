@@ -1,0 +1,15 @@
+# 排除不需要的文件和目录
+node_modules/
+.git/
+.cursor/
+docs/
+页面设计v*/
+系统开发成果/
+Office-Word-MCP-Server/
+*.md
+*.txt
+*.docx
+*.py
+*.ps1
+*.sh
+deploy.*
