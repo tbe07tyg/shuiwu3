@@ -1,8 +1,15 @@
 {
-  "buildCommand": "npm run build",
+  "version": 2,
+  "buildCommand": "bash vercel-build.sh",
   "outputDirectory": "dist",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
+  "framework": "vite",
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
   "rewrites": [
     {
       "source": "/(.*)",
